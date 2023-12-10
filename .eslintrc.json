@@ -36,7 +36,7 @@
             { "props": true, "ignorePropertyModificationsFor": ["state"] }
         ]
     },
-    "ignorePatterns": ["dist/*", "build/*"],
+    "ignorePatterns": ["dist/*", "build/*", "coverage/*"],
     "settings": {
         "import/resolver": {
             "typescript": {}
