@@ -36,7 +36,12 @@
             { "props": true, "ignorePropertyModificationsFor": ["state"] }
         ]
     },
-    "ignorePatterns": ["dist/*", "build/*", "coverage/*"],
+    "ignorePatterns": [
+        "dist/*",
+        "build/*",
+        "coverage/*",
+        "commitlint.config.cjs"
+    ],
     "settings": {
         "import/resolver": {
             "typescript": {}
