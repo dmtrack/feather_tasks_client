@@ -22,15 +22,5 @@
         }
     },
     "files": ["src/index.tsx"],
-    "include": [
-        "src",
-        "src/**/*.ts",
-        "environment.d.ts",
-        "commitlint.config.cjs"
-    ],
-    "ts-node": {
-        "compilerOptions": {
-            "module": "CommonJS"
-        }
-    }
+    "include": ["src", "src/**/*.ts", "environment.d.ts"]
 }
