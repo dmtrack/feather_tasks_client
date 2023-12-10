@@ -59,7 +59,6 @@
         "prettier:fix": "npm run prettier --fix --write .",
         "format": "npm run prettier:fix && npm run lint:fix",
         "preview": "vite preview",
-        "test:unit": "vitest",
         "prepare": "husky install"
     },
     "eslintConfig": {
