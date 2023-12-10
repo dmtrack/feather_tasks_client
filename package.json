@@ -1,5 +1,5 @@
 {
-    "name": "todoapp",
+    "name": "feather_tasks",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -55,8 +55,8 @@
         "build": "react-scripts build",
         "lint": "npx eslint .",
         "lint:fix": "npm run lint -- --fix .",
-        "prettier": "npx prettier --check .",
-        "prettier:fix": "npm run prettier --write .",
+        "prettier": "npx prettier --check",
+        "prettier:fix": "npm run prettier --fix --write .",
         "format": "npm run prettier:fix && npm run lint:fix",
         "preview": "vite preview",
         "test:unit": "vitest",

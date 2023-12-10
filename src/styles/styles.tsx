@@ -121,7 +121,7 @@ const StyledLink = styled(Link)`
 const StyledPrevIcon = styled(GrPrevious)<IconsProps>`
     polyline {
         stroke: ${({ $isDisabled, theme }) =>
-            $isDisabled ? theme.colors.grey : theme.colors.primaryColor};
+        $isDisabled ? theme.colors.grey : theme.colors.primaryColor};
     }
 `;
 

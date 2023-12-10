@@ -16,13 +16,12 @@ const AppLogoLink = styled(NavLink)`
 `;
 
 const AppLogoText = styled.p`
-    font-size: ${({ theme }) => theme.fontSizes.h3};
+    font-size: ${({ theme }) => theme.fontSizes.h4};
     font-weight: ${({ theme }) => theme.fontsWeight.bold};
 `;
 
 const LogoWrapper = styled.div`
     display: flex;
-    gap: 10px;
     align-items: center;
     padding-left: 2px;
 
@@ -31,16 +30,4 @@ const LogoWrapper = styled.div`
     }
 `;
 
-const AppLogoNote = styled.p`
-    font-size: ${({ theme }) => theme.fontSizes.smallNoteText};
-    margin-top: 1px;
-    text-align: right;
-
-    color: ${({ theme }) => theme.colors.grey};
-
-    @media (max-width: 375px) {
-        font-size: 11px;
-    }
-`;
-
-export { AppLogoWrapper, AppLogoLink, AppLogoText, LogoWrapper, AppLogoNote };
+export { AppLogoWrapper, AppLogoLink, AppLogoText, LogoWrapper };
