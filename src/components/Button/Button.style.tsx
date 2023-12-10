@@ -46,7 +46,7 @@ const StyledButton = styled(motion.button).attrs<ButtonProps>(
 
     &:disabled {
         background-color: ${({ $variants, theme }) =>
-        $variants ? theme.colors.transparent : theme.colors.grey};
+            $variants ? theme.colors.transparent : theme.colors.grey};
         cursor: default;
     }
 
