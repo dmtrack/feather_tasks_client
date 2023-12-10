@@ -1,5 +1,5 @@
 {
-    "name": "todoapp",
+    "name": "feather_tasks",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -10,16 +10,18 @@
         "@types/node": "^16.18.68",
         "@types/react": "^18.2.43",
         "@types/react-dom": "^18.2.17",
+        "@hello-pangea/dnd": "^16.2.0",
         "framer-motion": "^7.6.4",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-hook-form": "^7.39.1",
         "react-icons": "^4.6.0",
         "react-redux": "^8.0.5",
+        "@reduxjs/toolkit": "^1.9.0",
+        "redux-persist": "^6.0.0",
         "react-router-dom": "^6.20.1",
         "react-scripts": "5.0.1",
         "react-select": "^5.7.0",
-        "redux-persist": "^6.0.0",
         "typescript": "^4.9.5",
         "styled-components": "^5.3.6"
     },
@@ -54,10 +56,9 @@
         "lint": "npx eslint .",
         "lint:fix": "npm run lint -- --fix .",
         "prettier": "npx prettier --check .",
-        "prettier:fix": "npm run prettier --write .",
+        "prettier:fix": "npm run prettier --fix --write .",
         "format": "npm run prettier:fix && npm run lint:fix",
         "preview": "vite preview",
-        "test:unit": "vitest",
         "prepare": "husky install"
     },
     "eslintConfig": {

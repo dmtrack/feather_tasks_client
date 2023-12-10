@@ -5,7 +5,6 @@ import {
     AppLogoLink,
     AppLogoText,
     LogoWrapper,
-    AppLogoNote,
 } from './AppLogo.style';
 
 import AppLogoSvg from './AppLogoSvg';
@@ -18,7 +17,6 @@ function AppLogo() {
                     <AppLogoSvg />
                     <AppLogoText>tasks</AppLogoText>
                 </LogoWrapper>
-                <AppLogoNote>Management</AppLogoNote>
             </AppLogoLink>
         </AppLogoWrapper>
     );

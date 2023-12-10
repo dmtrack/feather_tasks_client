@@ -30,12 +30,13 @@
         "react/jsx-props-no-spreading": "off",
         "import/no-cycle": "off",
         "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "off",
         "no-param-reassign": [
             "error",
             { "props": true, "ignorePropertyModificationsFor": ["state"] }
         ]
     },
-    "ignorePatterns": ["dist/*", "build/*"],
+    "ignorePatterns": ["dist/*", "build/*", "coverage/*"],
     "settings": {
         "import/resolver": {
             "typescript": {}
