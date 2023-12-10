@@ -56,7 +56,7 @@
         "lint": "npx eslint .",
         "lint:fix": "npm run lint -- --fix .",
         "prettier": "npx prettier --check .",
-        "prettier:fix": "npm run prettier --fix --write .",
+        "prettier:fix": "npm run prettier --fix --write",
         "format": "npm run prettier:fix && npm run lint:fix",
         "preview": "vite preview",
         "prepare": "husky install"
