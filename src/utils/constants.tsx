@@ -5,7 +5,6 @@ import {
     FormTextField,
     UserFormValues,
     HeaderLinksProps,
-    Author,
     MainPageElement,
     EditFormValues,
     RadioInputItem,
@@ -17,7 +16,7 @@ import {
 import { GrProjects, GrTask } from 'react-icons/gr';
 import { GoProject } from 'react-icons/go';
 
-const baseUrl = 'https://project-management-ka5v.onrender.com/';
+const baseUrl = process.env.REACT_APP_NOT_SERVER_URL || 'http://localhost:8080';
 
 const nameValidation = /^(?=[a-zA-Z._ ]*$)(?!.*[_.]).*/gm;
 
@@ -107,36 +106,6 @@ const projectDescriptionValidation = {
     message: 'projects.maxLength',
     value: 'projects.description',
 };
-
-const authors: Author[] = [
-    {
-        id: 1,
-        name: 'roma',
-        githubLink: 'https://github.com/pug000',
-        title: 'Roman on GitHub',
-        description: 'romaDescription',
-        avatar: 'https://avatars.githubusercontent.com/u/95237510?v=4',
-        background: 'rgba(0, 0, 0, 0.1)',
-    },
-    {
-        id: 2,
-        name: 'nastya',
-        githubLink: 'https://github.com/saachko',
-        title: 'Anastasiya on GitHub',
-        description: 'nastyaDescription',
-        avatar: 'https://avatars.githubusercontent.com/u/95384801?v=4',
-        background: 'rgba(247, 206, 220, 0.5)',
-    },
-    {
-        id: 3,
-        name: 'artem',
-        githubLink: 'https://github.com/aArt13',
-        title: 'Artsiom on GitHub',
-        description: 'artemDescription',
-        avatar: 'https://avatars.githubusercontent.com/u/88494012?v=4',
-        background: 'rgba(230, 247, 255, 0.9);',
-    },
-];
 
 const headerSignItems: HeaderLinksProps[] = [
     {
@@ -248,7 +217,6 @@ const defaultSelectOptions: SelectOptions[] = [
 
 export {
     baseUrl,
-    authors,
     defaultUserFormValues,
     nameValidation,
     loginValidation,
