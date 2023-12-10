@@ -7,7 +7,7 @@ import { MdOutlineDelete, MdClose, MdEdit } from 'react-icons/md';
 import { BiEdit } from 'react-icons/bi';
 import { FiCheck } from 'react-icons/fi';
 
-import { ColorProps, IconsProps, SelectOptions } from '../ts/intertfaces';
+import { ColorProps, IconsProps, SelectOptions } from '../ts/interfaces';
 
 import defaultTheme from './theme';
 

@@ -12,7 +12,7 @@ import {
     ColumnFormValues,
     SearchBarValues,
     SelectOptions,
-} from 'ts/intertfaces';
+} from 'ts/interfaces';
 
 import { GrProjects, GrTask } from 'react-icons/gr';
 import { GoProject } from 'react-icons/go';
