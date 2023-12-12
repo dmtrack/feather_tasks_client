@@ -20,7 +20,8 @@ const baseUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:8080';
 
 const nameValidation = /^(?=[a-zA-Z._ ]*$)(?!.*[_.]).*/gm;
 
-const loginValidation = /^(?=[a-zA-Z0-9._]*$)(?!.*[_.])[^_.].*/gm;
+const loginValidation =
+    /^(?:[A-Z\d][A-Z\d_-]{4,10}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4})$/i;
 
 const passwordValidation = /^[a-zA-Z0-9](?!.*[_.()\\ /|=+№;:?*,"'`^%-]).*/gm;
 
@@ -73,31 +74,32 @@ const formTextFields: FormTextField[] = [
         id: 2,
         name: 'login',
         type: 'text',
-        placeholderText: 'authorization.login',
+        placeholderText: 'Login',
         pattern: {
             value: loginValidation,
-            message: 'authorization.loginPattern',
+            message: 'login should contain minimum 2 letters(eng) and 2 digits',
         },
         minLength: {
             value: 4,
-            message: 'authorization.authMinLength',
+            message: ` should contain more than  characters`,
         },
-        required: 'authorization.required',
+        required: 'field cant be empty',
     },
     {
         id: 3,
         name: 'password',
         type: 'password',
-        placeholderText: 'authorization.password',
+        placeholderText: 'Password',
         pattern: {
             value: passwordValidation,
-            message: 'authorization.passwordPattern',
+            message:
+                'password should contain only letters(eng), digits and ! @ # ~ &',
         },
         minLength: {
             value: 8,
-            message: 'authorization.authMinLength',
+            message: 'should contain more than  characters',
         },
-        required: 'authorization.required',
+        required: 'field cant be empty',
     },
 ];
 
