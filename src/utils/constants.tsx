@@ -16,7 +16,7 @@ import {
 import { GrProjects, GrTask } from 'react-icons/gr';
 import { GoProject } from 'react-icons/go';
 
-const baseUrl = process.env.REACT_APP_NOT_SERVER_URL || 'http://localhost:8080';
+const baseUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:8080';
 
 const nameValidation = /^(?=[a-zA-Z._ ]*$)(?!.*[_.]).*/gm;
 

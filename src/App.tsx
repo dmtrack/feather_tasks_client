@@ -1,5 +1,6 @@
 import Header from 'components/Header/Header';
 import Loader from 'components/Loader/Loader';
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import React, { lazy, Suspense, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
@@ -8,15 +9,16 @@ const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
 
 function App() {
     return (
-        <div>
+        <>
             <Header />
             <Suspense fallback={<Loader />}>
                 <Routes>
                     <Route path="signin" element={<SignInPage />} />
                     <Route path="signup" element={<SignUpPage />} />
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </Suspense>
-        </div>
+        </>
     );
 }
 

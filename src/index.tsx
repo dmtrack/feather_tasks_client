@@ -4,6 +4,8 @@ import GlobalStyle from 'styles/Global';
 import { ThemeProvider } from 'styled-components';
 import defaultTheme from 'styles/theme';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from 'redux/store';
 import App from './App';
 
 const root = ReactDOM.createRoot(
@@ -12,11 +14,13 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <ThemeProvider theme={defaultTheme}>
-                <GlobalStyle />
+            <Provider store={store}>
+                <ThemeProvider theme={defaultTheme}>
+                    <GlobalStyle />
 
-                <App />
-            </ThemeProvider>
+                    <App />
+                </ThemeProvider>
+            </Provider>
         </BrowserRouter>
     </React.StrictMode>,
 );
