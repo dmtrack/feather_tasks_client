@@ -74,15 +74,15 @@ function AuthForm({ keyPrefix, isLoadingAuth, onSubmit }: AuthFormProps) {
                     type={textfield.type}
                     name={textfield.name}
                     placeholderText={textfield.name}
-                    required={`${textfield.name} cant be empty`}
+                    required={`${textfield.name} is required`}
                     pattern={{
-                        ...textfield.pattern,
-                        message:
-                            'password should contain only letters(eng), digits and ! @ # ~ &',
+                        value: textfield.pattern.value,
+                        message: textfield.pattern.message,
                     }}
                     minLength={{
                         ...textfield.minLength,
-                        message: `should contain more than ${textfield.minLength} characters`,
+                        message: `should contain more than ${textfield.minLength.value} characters`,
+
                     }}
                     disabled={isLoadingAuth}
                     errors={errors[textfield.name]}
