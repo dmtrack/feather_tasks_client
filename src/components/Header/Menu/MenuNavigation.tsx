@@ -1,3 +1,4 @@
+import AppLogoSvg from 'components/AppLogo/AppLogoSvg';
 import React from 'react';
 
 import {
@@ -26,6 +27,9 @@ interface MenuNavigationProps {
 function MenuNavigation({ toggleMenu }: MenuNavigationProps) {
     return (
         <MenuWrapper variants={menuWrapperAnimation}>
+            <MenuImageWrapper>
+                <AppLogoSvg />
+            </MenuImageWrapper>
             <MenuList variants={menuListAnimation}>
                 {headerLinkItems.map(({ id, text, link, color }) => (
                     <MenuItem
@@ -34,14 +38,11 @@ function MenuNavigation({ toggleMenu }: MenuNavigationProps) {
                         variants={menuItemAnimation}
                     >
                         <MenuLink to={link} end onClick={toggleMenu}>
-                            Ссылка
+                            {text}
                         </MenuLink>
                     </MenuItem>
                 ))}
             </MenuList>
-            <MenuImageWrapper>
-                <MenuSvg />
-            </MenuImageWrapper>
         </MenuWrapper>
     );
 }

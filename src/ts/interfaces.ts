@@ -27,16 +27,6 @@ interface HeaderLinksProps {
     backgroundColor?: string;
 }
 
-interface Author {
-    id: number;
-    name: string;
-    githubLink: string;
-    title: string;
-    description: string;
-    avatar: string;
-    background: string;
-}
-
 interface UserFormValues {
     name: string;
     login: string;
@@ -45,8 +35,9 @@ interface UserFormValues {
 
 interface User {
     name?: string;
-    login: string;
+    login?: string;
     password: string;
+    avatar?: string;
 }
 
 interface AuthUser {
@@ -63,7 +54,7 @@ interface FormFieldValidation<T> {
 interface FormTextField {
     id: number;
     type: string;
-    name: string & keyof UserFormValues;
+    name: string & keyof Omit<User, 'avatar'>;
     placeholderText: string;
     required: string;
     minLength: FormFieldValidation<number>;
@@ -156,7 +147,6 @@ export type {
     WidthProps,
     IconsProps,
     HeaderLinksProps,
-    Author,
     UserFormValues,
     User,
     AuthUser,
