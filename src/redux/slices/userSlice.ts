@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AuthUser, User } from 'ts/interfaces';
 
 interface UserState {
-    user: User | null;
+    user: Omit<User, 'password'> | null;
     authUser: AuthUser | null;
     isLoggedIn: boolean;
     isDeleteUserPopupOpen: boolean;
@@ -26,7 +26,10 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setUser(state, { payload }: PayloadAction<User | null>) {
+        setUser(
+            state,
+            { payload }: PayloadAction<Omit<User, 'password'> | null>,
+        ) {
             state.user = payload;
         },
 
@@ -60,7 +63,7 @@ const userSlice = createSlice({
         setLoggedOut(state) {
             state.user = null;
             state.authUser = null;
-            state.isLoggedIn = true;
+            state.isLoggedIn = false;
         },
     },
 });

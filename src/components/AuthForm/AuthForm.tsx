@@ -41,6 +41,12 @@ function AuthForm({ keyPrefix, isLoadingAuth, onSubmit }: AuthFormProps) {
     });
     const isFormValid = Object.values(errors).every((error) => !error?.message);
 
+    useEffect(() => {
+        if (errors) {
+            trigger([...(Object.keys(errors) as (keyof UserFormValues)[])]);
+        }
+    }, [errors]);
+
     return (
         <Form
             aria-label="form"

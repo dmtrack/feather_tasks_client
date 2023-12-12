@@ -37,6 +37,7 @@ const useSignInUser = () => {
             reset,
         },
     ] = useSignInMutation();
+
     const {
         data: user,
         isSuccess: isSuccessGetUser,
@@ -54,8 +55,9 @@ const useSignInUser = () => {
         if (user && userData && isSuccessGetUser) {
             dispatch(
                 setUser({
-                    ...userData,
                     name: user.name,
+                    login: user.login,
+                    avatar: user.avatar,
                 }),
             );
             dispatch(setLoggedIn(true));

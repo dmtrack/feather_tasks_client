@@ -16,7 +16,8 @@ interface UpdatedUserData {
 const userApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getAllUsers: builder.query<UserDataOmitPassword[], void>({
-            query: () => addFetchOptions(`${Endpoints.users}`, Methods.get),
+            query: () =>
+                addFetchOptions(`${Endpoints.users}/getusers`, Methods.get),
             providesTags: (result) =>
                 result
                     ? [
@@ -31,16 +32,16 @@ const userApiSlice = apiSlice.injectEndpoints({
 
         getUserById: builder.query<UserDataOmitPassword, string>({
             query: (id: string) =>
-                addFetchOptions(`${Endpoints.users}${id}`, Methods.get),
+                addFetchOptions(`${Endpoints.users}/${id}`, Methods.get),
             transformErrorResponse: ({ status }): string =>
                 status === 403
-                    ? 'authorization.tokenInvalid'
-                    : 'authorization.error',
+                    ? `Sorry your token isn't valid any more. You were logged out.`
+                    : 'Authorization error. Try again later',
         }),
 
         deleteUserById: builder.mutation<UserDataOmitPassword, string>({
             query: (id: string) =>
-                addFetchOptions(`${Endpoints.users}${id}`, Methods.delete),
+                addFetchOptions(`${Endpoints.users}/${id}`, Methods.delete),
         }),
 
         editUserById: builder.mutation<UserDataOmitPassword, UpdatedUserData>({
@@ -59,7 +60,9 @@ const userApiSlice = apiSlice.injectEndpoints({
                 }
             },
             transformErrorResponse: ({ status }): string =>
-                status === 409 ? 'signUp.error' : 'authorization.error',
+                status === 409
+                    ? 'This login already exists'
+                    : 'Authorization error. Try again later',
             invalidatesTags: ['User'],
         }),
     }),

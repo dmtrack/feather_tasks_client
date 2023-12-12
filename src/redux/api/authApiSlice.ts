@@ -29,10 +29,12 @@ const authApiSlice = apiSlice.injectEndpoints({
             },
             transformResponse: ({ _id, ...data }: UserData) => data,
             transformErrorResponse: ({ status }): string =>
-                status === 409 ? 'signUp.error' : 'authorization.error',
+                status === 409
+                    ? 'This login already exists'
+                    : 'Authorization error. Try again later',
         }),
 
-        signIn: builder.mutation<AuthUser, User>({
+        signIn: builder.mutation<AuthUser, Omit<User, 'password'>>({
             query: (body: User) => ({
                 ...addFetchOptions(`${Endpoints.signIn}`, Methods.post),
                 headers: {
@@ -54,7 +56,9 @@ const authApiSlice = apiSlice.injectEndpoints({
                 ...parseJwt(token),
             }),
             transformErrorResponse: ({ status }): string =>
-                status === 401 ? 'signIn.error' : 'authorization.error',
+                status === 401
+                    ? 'Incorrect login or password'
+                    : 'Authorization error. Try again later',
         }),
     }),
 });

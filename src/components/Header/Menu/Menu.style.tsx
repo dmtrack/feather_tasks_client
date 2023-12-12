@@ -33,7 +33,7 @@ const MenuWrapper = styled(motion.div)`
     bottom: 0;
     width: 320px;
     background-color: ${({ theme }) => theme.colors.backgroundGrey};
-    justify-content: space-evenly;
+    justify-content: center;
 `;
 
 const MenuButton = styled.button.attrs({
@@ -79,14 +79,15 @@ const MenuLink = styled(NavLink)`
 `;
 
 const MenuImageWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding-left: 35px;
+    display: block;
+    width: fit-content;
+    align-items: flex-end;
 `;
 
 const Icon = styled.svg`
-    width: 23px;
-    height: 23px;
+    width: 45px;
+    height: 45px;
 `;
 
 const Path = styled(motion.path).attrs<PathAnimationProps>(
