@@ -54,6 +54,7 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "lint": "npx eslint \"{,!(node_modules)/**/}*.{js,ts,tsx}\"",
+        "lint:staged": "npx eslint",
         "lint:fix": "npm run lint --fix",
         "prettier": "npx prettier --check .",
         "prettier:fix": "npm run prettier --write \"{,!(node_modules)/**/}*.{js,ts,tsx}\"",
