@@ -82,6 +82,7 @@ function AuthForm({ keyPrefix, isLoadingAuth, onSubmit }: AuthFormProps) {
                     minLength={{
                         ...textfield.minLength,
                         message: `should contain more than ${textfield.minLength.value} characters`,
+
                     }}
                     disabled={isLoadingAuth}
                     errors={errors[textfield.name]}
