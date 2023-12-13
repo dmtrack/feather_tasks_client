@@ -12,6 +12,8 @@ import {
 import storage from 'redux-persist/lib/storage';
 import userSlice from './slices/userSlice';
 import apiSlice from './api/apiSlice';
+import taskSlice from './slices/taskSlice';
+import columnSlice from './slices/columnSlice';
 
 const persistConfig = {
     key: 'root',
@@ -30,6 +32,8 @@ const userConfig = {
 const rootReducer = combineReducers({
     user: persistReducer(userConfig, userSlice),
     [apiSlice.reducerPath]: apiSlice.reducer,
+    column: columnSlice,
+    task: taskSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

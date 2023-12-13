@@ -105,7 +105,7 @@ interface Column extends ColumnFormValues {
 }
 interface ColumnData extends Column {
     _id: string;
-    boardId: string;
+    userId: string;
 }
 
 interface SearchBarValues {
@@ -120,7 +120,7 @@ interface NewTask extends Column {
 
 interface TaskData extends NewTask {
     _id: string;
-    boardId: string;
+    userId: string;
     columnId: string;
 }
 
@@ -129,7 +129,7 @@ interface Task extends TaskData {
 }
 
 interface TasksProps {
-    boardId: string;
+    userId: string;
     columnId: string;
 }
 interface TaskList {
