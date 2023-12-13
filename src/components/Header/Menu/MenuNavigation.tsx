@@ -1,5 +1,8 @@
 import AppLogoSvg from 'components/AppLogo/AppLogoSvg';
+import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
 import React from 'react';
+import { getLoggedIn } from 'redux/selectors/userSelectors';
+import { setLogoutUserPopupOpen } from 'redux/slices/userSlice';
 
 import {
     menuItemAnimation,
@@ -18,13 +21,23 @@ import {
     MenuItem,
     MenuImageWrapper,
 } from './Menu.style';
-import MenuSvg from './MenuSvg';
 
 interface MenuNavigationProps {
     toggleMenu: () => void;
 }
 
 function MenuNavigation({ toggleMenu }: MenuNavigationProps) {
+    const dispatch = useAppDispatch();
+    const isLoggedIn = useAppSelector(getLoggedIn);
+
+    const toggleMenuOnClick = (id: string) => {
+        if (id === 'signOut') {
+            dispatch(setLogoutUserPopupOpen(true));
+        }
+
+        toggleMenu();
+    };
+
     return (
         <MenuWrapper variants={menuWrapperAnimation}>
             <MenuImageWrapper>
@@ -42,6 +55,19 @@ function MenuNavigation({ toggleMenu }: MenuNavigationProps) {
                         </MenuLink>
                     </MenuItem>
                 ))}
+                {(isLoggedIn ? headerItemsIfLoggedIn : headerSignItems).map(
+                    ({ id, text, link }) => (
+                        <MenuItem key={id} variants={menuItemAnimation}>
+                            <MenuLink
+                                to={link}
+                                end
+                                onClick={() => toggleMenuOnClick(id)}
+                            >
+                                {text}
+                            </MenuLink>
+                        </MenuItem>
+                    ),
+                )}
             </MenuList>
         </MenuWrapper>
     );
