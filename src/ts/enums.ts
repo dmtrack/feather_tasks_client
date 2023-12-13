@@ -1,11 +1,9 @@
 enum Endpoints {
     signIn = 'auth/signin',
     signUp = 'auth/signup',
-    users = 'user',
-    columns = 'columns/',
-    columnsSet = 'columnsSet/',
-    tasks = 'tasks/',
-    tasksSet = 'tasksSet/',
+    users = 'user/',
+    columns = 'column/',
+    tasks = 'task/',
 }
 
 enum Methods {
