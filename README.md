@@ -36,7 +36,6 @@ it's a web-app for personal task and purposes managements.
 -   nodeJS
 -   typescript
 -   express
--   sequelize (Postgres)
 -   jsonwebtoken
 
 ### DB
