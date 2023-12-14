@@ -6,7 +6,6 @@ import useEditColumnTitle from 'hooks/useEditColumnTitle';
 import useCreateTask from 'hooks/useCreateTask';
 import useDeleteTask from 'hooks/useDeleteTask';
 import useEditTask from 'hooks/useEditTask';
-import useDragAndDrop from 'hooks/useDragAndDrop';
 
 import {
     setDeleteColumnPopupOpen,
