@@ -1,7 +1,9 @@
 import Header from 'components/Header/Header';
 import Loader from 'components/Loader/Loader';
-import React, { lazy, Suspense, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { useAppSelector } from 'hooks/useRedux';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { getAuthUser } from 'redux/selectors/userSelectors';
 
 const SignUpPage = lazy(() => import('pages/SignUpPage/SignUpPage'));
 const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
@@ -11,6 +13,19 @@ const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 function App() {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const routeId = location.pathname.split('/')[2];
+
+    const authUser = useAppSelector(getAuthUser);
+    const authId = authUser?._id;
+
+    useEffect(() => {
+        if (location.pathname.includes('projects') && authId !== routeId) {
+            navigate('/');
+        }
+    }, [routeId]);
+
     return (
         <>
             <Header />
