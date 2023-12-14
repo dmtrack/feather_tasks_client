@@ -123,6 +123,10 @@ interface TaskData extends NewTask {
     columnId: string;
 }
 
+interface Task extends TaskData {
+    // color: string;
+}
+
 interface TasksProps {
     userId: string;
     columnId: string;
@@ -159,6 +163,7 @@ export type {
     SearchBarValues,
     NewTask,
     TaskData,
+    Task,
     TasksProps,
     TaskList,
     SelectOptions,
