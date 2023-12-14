@@ -30,7 +30,6 @@ interface MenuNavigationProps {
 function MenuNavigation({ toggleMenu }: MenuNavigationProps) {
     const dispatch = useAppDispatch();
     const isLoggedIn = useAppSelector(getLoggedIn);
-    const authUser = useAppSelector(getAuthUser);
 
     const toggleMenuOnClick = (id: string) => {
         const navigate = useNavigate();
@@ -53,11 +52,7 @@ function MenuNavigation({ toggleMenu }: MenuNavigationProps) {
                         color={color}
                         variants={menuItemAnimation}
                     >
-                        <MenuLink
-                            to={`${isLoggedIn} ? ${link}/${authUser?._id} : ${link}}`}
-                            end
-                            onClick={toggleMenu}
-                        >
+                        <MenuLink to={link} end onClick={toggleMenu}>
                             {text}
                         </MenuLink>
                     </MenuItem>
@@ -66,7 +61,7 @@ function MenuNavigation({ toggleMenu }: MenuNavigationProps) {
                     ({ id, text, link }) => (
                         <MenuItem key={id} variants={menuItemAnimation}>
                             <MenuLink
-                                to={`${isLoggedIn} ? ${link}${authUser?._id} : ${link}}`}
+                                to={link}
                                 end
                                 onClick={() => toggleMenuOnClick(id)}
                             >
