@@ -24,6 +24,8 @@ it's a web-app for personal task and purposes managements.
 -   reduxjs/rtk-query
 -   eslint
 -   prettier
+-   husky
+-   CI/CD
 
 ### UI
 
