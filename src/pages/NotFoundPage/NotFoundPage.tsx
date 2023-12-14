@@ -1,12 +1,19 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 
 import Button from 'components/Button/Button';
 
 import { MainWrapper, Title } from 'styles/styles';
-
+import { useNavigate } from 'react-router-dom';
 import { NotFoundText, NotFoundLink, NotFoundIcon } from './NotFoundPage.style';
 
 function NotFoundPage() {
+    const navigate = useNavigate();
+    useEffect(() => {
+        setTimeout(() => {
+            navigate('/');
+        }, 3000);
+    }, []);
+
     return (
         <MainWrapper>
             <NotFoundIcon />
