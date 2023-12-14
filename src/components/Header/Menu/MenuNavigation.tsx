@@ -30,9 +30,9 @@ interface MenuNavigationProps {
 function MenuNavigation({ toggleMenu }: MenuNavigationProps) {
     const dispatch = useAppDispatch();
     const isLoggedIn = useAppSelector(getLoggedIn);
+    const authUser = useAppSelector(getAuthUser);
 
     const toggleMenuOnClick = (id: string) => {
-        const navigate = useNavigate();
         if (id === 'signOut') {
             dispatch(setLogoutUserPopupOpen(true));
         }
