@@ -62,7 +62,7 @@ function HomePage() {
                     >
                         {el.icon}
                         <ElementTitle>{el.title}</ElementTitle>
-                        <p>{el.text}</p>
+                        <p>This is true s</p>
                     </MainPageElement>
                 ))}
             </ColumnSection>
