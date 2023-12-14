@@ -1,7 +1,8 @@
 import AppLogoSvg from 'components/AppLogo/AppLogoSvg';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
 import React from 'react';
-import { getLoggedIn } from 'redux/selectors/userSelectors';
+import { useNavigate } from 'react-router-dom';
+import { getAuthUser, getLoggedIn } from 'redux/selectors/userSelectors';
 import { setLogoutUserPopupOpen } from 'redux/slices/userSlice';
 
 import {
@@ -29,8 +30,10 @@ interface MenuNavigationProps {
 function MenuNavigation({ toggleMenu }: MenuNavigationProps) {
     const dispatch = useAppDispatch();
     const isLoggedIn = useAppSelector(getLoggedIn);
+    const authUser = useAppSelector(getAuthUser);
 
     const toggleMenuOnClick = (id: string) => {
+        const navigate = useNavigate();
         if (id === 'signOut') {
             dispatch(setLogoutUserPopupOpen(true));
         }
@@ -50,7 +53,11 @@ function MenuNavigation({ toggleMenu }: MenuNavigationProps) {
                         color={color}
                         variants={menuItemAnimation}
                     >
-                        <MenuLink to={link} end onClick={toggleMenu}>
+                        <MenuLink
+                            to={`${isLoggedIn} ? ${link}/${authUser?._id} : ${link}}`}
+                            end
+                            onClick={toggleMenu}
+                        >
                             {text}
                         </MenuLink>
                     </MenuItem>
@@ -59,7 +66,7 @@ function MenuNavigation({ toggleMenu }: MenuNavigationProps) {
                     ({ id, text, link }) => (
                         <MenuItem key={id} variants={menuItemAnimation}>
                             <MenuLink
-                                to={link}
+                                to={`${isLoggedIn} ? ${link}${authUser?._id} : ${link}}`}
                                 end
                                 onClick={() => toggleMenuOnClick(id)}
                             >

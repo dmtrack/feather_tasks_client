@@ -24,14 +24,14 @@ function NoResultsContainer({
 
     return (
         <Container>
-            <Title>It seems you dont have any projects yet</Title>
+            <Title>It seems you dont have any tasks yet</Title>
             <Button
                 type="button"
                 backgroundColor={defaultTheme.colors.transparent}
                 color={defaultTheme.colors.grey}
                 callback={() => dispatch(setPopupShown(true))}
             >
-                Click here to create a new project
+                Click here to create a new column for your tasks
             </Button>
         </Container>
     );

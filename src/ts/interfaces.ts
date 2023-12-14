@@ -115,7 +115,6 @@ interface SearchBarValues {
 interface NewTask extends Column {
     description: string;
     userId: string;
-    users: string[];
 }
 
 interface TaskData extends NewTask {
@@ -125,7 +124,7 @@ interface TaskData extends NewTask {
 }
 
 interface Task extends TaskData {
-    color: string;
+    // color: string;
 }
 
 interface TasksProps {

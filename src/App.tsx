@@ -5,7 +5,9 @@ import { Route, Routes } from 'react-router-dom';
 
 const SignUpPage = lazy(() => import('pages/SignUpPage/SignUpPage'));
 const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
-const ProjectsPage = lazy(() => import('pages/ProjectsPage/ProjectsPage'));
+const ProjectPage = lazy(() => import('pages/ProjectPage/ProjectPage'));
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 function App() {
@@ -16,7 +18,8 @@ function App() {
                 <Routes>
                     <Route path="signin" element={<SignInPage />} />
                     <Route path="signup" element={<SignUpPage />} />
-                    <Route path="projects" element={<ProjectsPage />} />
+                    <Route path="" element={<HomePage />} />
+                    <Route path="projects/:id" element={<ProjectPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </Suspense>

@@ -46,10 +46,9 @@ const columnsApiSlice = apiSlice.injectEndpoints({
                     }
                 }
             },
-            transformResponse: (columns: ColumnData[]) =>
-                columns.sort((a, b) => a.order - b.order),
-            providesTags: (result) =>
-                result
+
+            providesTags: (result, error, args) => {
+                return result
                     ? [
                           ...result.map(({ _id }) => ({
                               type: 'Column' as const,
@@ -57,7 +56,8 @@ const columnsApiSlice = apiSlice.injectEndpoints({
                           })),
                           'Column',
                       ]
-                    : ['Column'],
+                    : ['Column'];
+            },
         }),
 
         createColumn: builder.mutation<ColumnData, ColumnResponse>({

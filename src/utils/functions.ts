@@ -30,7 +30,7 @@ const parseJwt = (token: string): ParsedJwt => {
     const parsedToken = JSON.parse(jsonPayload);
 
     return {
-        _id: parsedToken.id,
+        _id: parsedToken._id,
         exp: parsedToken.exp,
     };
 };

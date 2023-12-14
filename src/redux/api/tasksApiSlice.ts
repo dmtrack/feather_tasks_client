@@ -31,13 +31,7 @@ const tasksApiSlice = apiSlice.injectEndpoints({
                     `${Endpoints.users}${userId}/${Endpoints.columns}${columnId}/${Endpoints.tasks}`,
                     Methods.get,
                 ),
-            transformResponse: (tasks: TaskData[]) =>
-                tasks
-                    .map((data) => ({
-                        ...data,
-                        ...JSON.parse(data.description),
-                    }))
-                    .sort((a, b) => a.order - b.order),
+
             onQueryStarted: async (
                 _,
                 { dispatch, queryFulfilled, getState },
@@ -73,13 +67,15 @@ const tasksApiSlice = apiSlice.injectEndpoints({
         }),
 
         createTask: builder.mutation<TaskData, Omit<MutationTaskProps, 'id'>>({
-            query: ({ userId, columnId, body }) => ({
-                ...addFetchOptions(
-                    `${Endpoints.users}${userId}/${Endpoints.columns}${columnId}/${Endpoints.tasks}`,
-                    Methods.post,
-                ),
-                body,
-            }),
+            query: ({ userId, columnId, body }) => {
+                return {
+                    ...addFetchOptions(
+                        `${Endpoints.users}${userId}/${Endpoints.columns}${columnId}/${Endpoints.tasks}`,
+                        Methods.post,
+                    ),
+                    body,
+                };
+            },
             invalidatesTags: ['Task'],
         }),
 

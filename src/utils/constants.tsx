@@ -149,11 +149,6 @@ const headerLinkItems: HeaderLinksProps[] = [
         text: 'home',
         link: '/',
     },
-    {
-        id: 'projects',
-        text: 'tasks',
-        link: '/projects',
-    },
 ];
 
 const mainPageElements: MainPageElement[] = [
