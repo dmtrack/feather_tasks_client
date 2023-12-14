@@ -1,7 +1,6 @@
 import AppLogoSvg from 'components/AppLogo/AppLogoSvg';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { getAuthUser, getLoggedIn } from 'redux/selectors/userSelectors';
 import { setLogoutUserPopupOpen } from 'redux/slices/userSlice';
 
