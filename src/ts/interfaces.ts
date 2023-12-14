@@ -115,17 +115,12 @@ interface SearchBarValues {
 interface NewTask extends Column {
     description: string;
     userId: string;
-    users: string[];
 }
 
 interface TaskData extends NewTask {
     _id: string;
     userId: string;
     columnId: string;
-}
-
-interface Task extends TaskData {
-    color: string;
 }
 
 interface TasksProps {
@@ -164,7 +159,6 @@ export type {
     SearchBarValues,
     NewTask,
     TaskData,
-    Task,
     TasksProps,
     TaskList,
     SelectOptions,

@@ -71,7 +71,7 @@ const useSignUpUser = () => {
 
     useEffect(() => {
         if (isLoggedIn) {
-            navigate('/projects');
+            navigate(`/projects/${authUser?._id}`);
         }
     }, [isLoggedIn]);
 

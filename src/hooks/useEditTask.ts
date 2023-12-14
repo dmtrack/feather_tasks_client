@@ -20,23 +20,22 @@ const useEditTask = (selectedTask: Task | null) => {
     }, []);
 
     const editTaskOnSubmit: SubmitHandler<EditFormValues> = useCallback(
-        async ({ title, color, description, responsibleUser }) => {
+        async ({ title, description }) => {
             if (selectedTask) {
                 const { columnId, userId, order } = selectedTask;
                 dispatch(setEditTaskPopupOpen(false));
-                dispatch(setSelectedTask(null));
                 await editTask({
                     userId,
                     columnId,
                     id: selectedTask._id,
                     body: {
                         title,
-                        description: JSON.stringify({ color, description }),
+                        description,
                         userId,
-                        users: [responsibleUser],
                         order,
                     },
                 });
+                dispatch(setSelectedTask(null));
             }
         },
         [selectedTask],

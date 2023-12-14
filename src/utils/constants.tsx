@@ -150,9 +150,9 @@ const headerLinkItems: HeaderLinksProps[] = [
         link: '/',
     },
     {
-        id: 'projects',
+        id: 'tasks',
         text: 'tasks',
-        link: '/projects',
+        link: '/project',
     },
 ];
 
