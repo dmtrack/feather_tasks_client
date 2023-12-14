@@ -112,14 +112,14 @@ const projectDescriptionValidation = {
 const headerSignItems: HeaderLinksProps[] = [
     {
         id: 'signIn',
-        text: 'signIn',
+        text: 'signin',
         link: '/signin',
         color: theme.colors.primaryColor,
         backgroundColor: theme.colors.transparent,
     },
     {
         id: 'signUp',
-        text: 'signUp',
+        text: 'signup',
         link: '/signup',
         color: theme.colors.textButton,
         backgroundColor: theme.colors.backgroundDarkBlue,
@@ -129,18 +129,11 @@ const headerSignItems: HeaderLinksProps[] = [
 const headerItemsIfLoggedIn: HeaderLinksProps[] = [
     {
         id: 'signOut',
-        text: 'signOut',
+        text: 'sign out',
         link: '#',
         color: theme.colors.primaryColor,
         backgroundColor: theme.colors.transparent,
     },
-    // {
-    //     id: 'profile',
-    //     text: 'profile.title',
-    //     link: '/profile',
-    //     color: theme.colors.textButton,
-    //     backgroundColor: theme.colors.backgroundDarkBlue,
-    // },
 ];
 
 const headerLinkItems: HeaderLinksProps[] = [
